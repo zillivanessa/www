@@ -1,3 +1,571 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Dolce Lingua - Italiano in presenza per bambini 0-12 anni | Italian for kids in person</title>
+  <!-- Font e icone -->
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Quicksand', 'Comic Neue', sans-serif;
+      background: #FFF9F5;
+      color: #4A3B2C;
+      line-height: 1.5;
+    }
+    h1, h2, h3 {
+      font-weight: 600;
+      letter-spacing: -0.3px;
+    }
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      color: #E67E22;
+      border-left: 6px solid #F7B05E;
+      padding-left: 1rem;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    /* Header */
+    header {
+      background: white;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.8rem 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #E67E22;
+    }
+    .logo i {
+      font-size: 1.8rem;
+      color: #F4A261;
+    }
+    .lang-selector {
+      display: flex;
+      gap: 0.5rem;
+      background: #FFF0E4;
+      padding: 0.3rem 0.8rem;
+      border-radius: 40px;
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      padding: 0.2rem 0.6rem;
+      border-radius: 30px;
+      transition: all 0.2s;
+    }
+    .lang-btn.active {
+      background: #E67E22;
+      color: white;
+    }
+    .menu-icon {
+      font-size: 1.8rem;
+      cursor: pointer;
+      display: none;
+    }
+    nav ul {
+      display: flex;
+      gap: 1.8rem;
+      list-style: none;
+    }
+    nav ul li {
+      cursor: pointer;
+      font-weight: 600;
+      padding: 0.5rem 0;
+      transition: color 0.2s;
+    }
+    nav ul li:hover {
+      color: #E67E22;
+    }
+    @media (max-width: 768px) {
+      .menu-icon {
+        display: block;
+      }
+      nav ul {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        flex-direction: column;
+        background: white;
+        width: 80%;
+        height: calc(100% - 70px);
+        box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+        padding: 2rem;
+        gap: 1.5rem;
+        transition: 0.3s;
+        z-index: 99;
+      }
+      nav ul.show {
+        left: 0;
+      }
+    }
+    .page {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+    .active-page {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.8rem;
+      margin: 2rem 0;
+    }
+    .card {
+      background: white;
+      border-radius: 32px;
+      padding: 1.5rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: 1px solid #FFE3CC;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 28px rgba(0,0,0,0.1);
+    }
+    .btn {
+      background: #F7B05E;
+      border: none;
+      padding: 0.7rem 1.4rem;
+      border-radius: 40px;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      transition: 0.2s;
+      display: inline-block;
+      color: #4A3B2C;
+      text-decoration: none;
+    }
+    .btn:hover {
+      background: #E67E22;
+      color: white;
+      transform: scale(0.97);
+    }
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #F7B05E;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .modal-content {
+      background: white;
+      padding: 2rem;
+      border-radius: 32px;
+      max-width: 400px;
+      text-align: center;
+    }
+    .faq-item {
+      background: white;
+      margin: 1rem 0;
+      border-radius: 28px;
+      padding: 0.8rem 1.2rem;
+      cursor: pointer;
+      border: 1px solid #FFE0C0;
+    }
+    .faq-question {
+      font-weight: 700;
+      display: flex;
+      justify-content: space-between;
+    }
+    .faq-answer {
+      display: none;
+      margin-top: 0.8rem;
+      color: #7F5E3A;
+    }
+    footer {
+      background: #FCE9DE;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 3rem;
+      border-radius: 40px 40px 0 0;
+    }
+    .pill {
+      background: #FCE4D0;
+      border-radius: 50px;
+      padding: 0.3rem 1rem;
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    .flex-2col {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .col {
+      flex: 1;
+      min-width: 240px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin: 0.5rem 0;
+      border-radius: 28px;
+      border: 1px solid #FFD9B5;
+      font-family: inherit;
+    }
+    table {
+      width:100%; 
+      border-collapse: collapse; 
+      background:white; 
+      border-radius: 24px; 
+      overflow: hidden;
+      margin: 1rem 0;
+    }
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #FFE0C0;
+    }
+    th {
+      background:#F7B05E;
+    }
+    @media (max-width: 640px) {
+      h2 { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-flex">
+      <div class="logo"><i class="fas fa-candy-cane"></i> <span class="logo-text">Dolce Lingua</span></div>
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <div class="lang-selector">
+          <button class="lang-btn active" data-lang="it">🇮🇹 IT</button>
+          <button class="lang-btn" data-lang="en">🇦🇺 EN</button>
+        </div>
+        <div class="menu-icon" id="menuToggle"><i class="fas fa-bars"></i></div>
+      </div>
+      <nav>
+        <ul id="navMenu">
+          <li data-page="home" data-key="navHome"><i class="fas fa-home"></i> <span>Home</span></li>
+          <li data-page="metodo" data-key="navMethod"><i class="fas fa-book-open"></i> <span>Metodo</span></li>
+          <li data-page="dove" data-key="navWhere"><i class="fas fa-map-marker-alt"></i> <span>Dove e come</span></li>
+          <li data-page="giochi" data-key="navGames"><i class="fas fa-gamepad"></i> <span>Giochi</span></li>
+          <li data-page="genitori" data-key="navParents"><i class="fas fa-users"></i> <span>Area Genitori</span></li>
+          <li data-page="contatti" data-key="navContact"><i class="fas fa-envelope"></i> <span>Contatti</span></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HOME -->
+    <div id="home-page" class="page active-page">
+      <div style="background: linear-gradient(135deg, #FFF3E9, #FFE6D5); border-radius: 48px; padding: 2rem; margin: 2rem 0;">
+        <h1 style="font-size: 2.4rem;" data-key="heroTitle">🍬 Dolce Lingua <span style="font-size: 1.2rem; display: block;" data-key="heroSub">L'italiano che viene da te – in sede o a casa tua, da 0 a 12 anni</span></h1>
+        <p style="margin: 1rem 0;" data-key="heroDesc">Lezioni di italiano in presenza, con metodo dolce e sensoriale. Niente schermi, solo relazione vera.</p>
+        <button class="btn" id="ctaPrenotaHome" data-key="heroBtn">📅 Prova gratuita</button>
+      </div>
+      <div class="flex-2col" style="margin: 2rem 0;">
+        <div class="card"><i class="fas fa-building" style="font-size: 2rem; color:#E67E22;"></i><h3 data-key="studioTitle">📍 Studio Dolce Lingua</h3><p data-key="studioDesc">14 MacFarlane st, Marshall 3264 VIC – aule con materiali tattili e accoglienza calda.</p></div>
+        <div class="card"><i class="fas fa-home" style="font-size: 2rem; color:#E67E22;"></i><h3 data-key="homeTitle">🏠 A casa tua</h3><p data-key="homeDesc">L’insegnante viene direttamente a domicilio. Orari flessibili, massima comodità per tutta la famiglia.</p></div>
+      </div>
+      <h2 data-key="howItWorksTitle"><i class="fas fa-star-of-life"></i> Come funziona</h2>
+      <div class="cards-grid" id="howCards"></div>
+      <h2 data-key="activitiesTitle"><i class="fas fa-palette"></i> Cosa facciamo in aula / a casa</h2>
+      <div class="cards-grid" id="attivitaContainer"></div>
+      <h2 data-key="testimonialsTitle"><i class="fas fa-comment-dots"></i> Ci credono i genitori</h2>
+      <div class="cards-grid" id="testimonianzeContainer"></div>
+      <div style="text-align: center; margin: 2rem 0;"><button class="btn btn-outline" id="infoBtn" data-key="infoBtnText"><i class="fas fa-question-circle"></i> Richiedi informazioni</button></div>
+    </div>
+
+    <!-- METODO -->
+    <div id="metodo-page" class="page">
+      <h2 data-key="methodTitle">📖 Il metodo Dolce Lingua – solo presenza, 0-12 anni</h2>
+      <p data-key="methodDesc">Nessuno schermo. Impariamo con <strong>corpo, voce, oggetti reali</strong> e tanto affetto. Approccio ispirato a Montessori e alla pedagogia narrativa.</p>
+      <div class="cards-grid" id="ageGroups"></div>
+      <h3 data-key="tableTitle">🎯 Tabella riassuntiva</h3>
+      <table id="ageTable">
+        <tr><th data-key="ageCol">Età</th><th data-key="durationCol">Durata lezione</th><th data-key="maxKidsCol">Max bambini (sede)</th><th data-key="homeCol">Domicilio</th></tr>
+        <tr><td data-key="age0">0-2 anni</td><td data-key="dur0">30 min</td><td>6 + genitore</td><td data-key="yes">✅ sì</td></tr>
+        <tr><td data-key="age3">3-5 anni</td><td data-key="dur3">45 min</td><td>8</td><td data-key="yes">✅ sì</td></tr>
+        <tr><td data-key="age6">6-8 anni</td><td data-key="dur6">60 min</td><td>8</td><td data-key="yes">✅ sì</td></tr>
+        <tr><td data-key="age9">9-12 anni</td><td data-key="dur9">75 min</td><td>10</td><td data-key="yes">✅ sì</td></tr>
+      </table>
+    </div>
+
+    <!-- DOVE E COME -->
+    <div id="dove-page" class="page">
+      <h2 data-key="whereTitle"><i class="fas fa-map-pin"></i> Una sede + lezioni a domicilio</h2>
+      <div class="flex-2col">
+        <div class="card"><i class="fas fa-chalkboard-teacher fa-2x"></i><h3 data-key="studioCardTitle">Studio Dolce Lingua</h3><p data-key="studioCardAddr">📍 14 MacFarlane st, Marshall 3264 VIC<br>📅 Martedì e Giovedì 9:30-18:00<br>Ambiente attrezzato con tappeti, libri, materiali tattili.</p><div class="pill" data-key="parking">Parcheggio facile</div></div>
+        <div class="card"><i class="fas fa-car fa-2x"></i><h3 data-key="homeCardTitle">A casa tua</h3><p data-key="homeCardDesc">Raggiungiamo entro 30 km da Geelong centro. Orari flessibili, lezioni individuali o a piccoli gruppi di fratellini.</p><button class="btn" id="domicilioBtn" data-key="quoteBtn">Richiedi preventivo domicilio</button></div>
+      </div>
+      <h3 data-key="scheduleTitle">🗓️ Orari sede</h3>
+      <ul style="background:white; border-radius: 28px; padding:1rem;" id="scheduleList"></ul>
+      <div class="pill" style="margin-top:1rem;" data-key="homeFlexNote">Domicilio: su appuntamento, tutti i giorni</div>
+    </div>
+
+    <!-- GIOCHI -->
+    <div id="giochi-page" class="page">
+      <h2 data-key="gamesTitle"><i class="fas fa-dice-d6"></i> I nostri giochi in presenza</h2>
+      <div class="cards-grid" id="gamesList"></div>
+      <h2 data-key="demoTitle">🎮 Assaggia il metodo (demo)</h2>
+      <div class="card" style="text-align:center;">
+        <p><strong data-key="quizPrompt">🐶 Ascolta e scegli l’immagine corretta</strong></p>
+        <div id="quizDomanda">Parola: CANE</div>
+        <div style="display: flex; gap: 1rem; justify-content: center; margin: 1rem 0;">
+          <button class="btn quiz-opt" data-word="cane">🐕 <span data-key="optionDog">Cane</span></button>
+          <button class="btn quiz-opt" data-word="gatto">🐈 <span data-key="optionCat">Gatto</span></button>
+        </div>
+        <div id="feedbackQuiz"></div>
+        <p style="margin-top:1rem;"><small data-key="quizFooter">⭐ A Dolce Lingua giochiamo insieme dal vivo, ridendo e toccando oggetti veri!</small></p>
+      </div>
+      <h2 data-key="printTitle">📄 Stampabili per genitori</h2>
+      <div class="flex-2col">
+        <div class="card"><i class="fas fa-download"></i> <span data-key="printRhymes">Filastrocche illustrate (PDF fittizio)</span></div>
+        <div class="card"><i class="fas fa-download"></i> <span data-key="printWorksheets">Schede dei vocaboli da colorare</span></div>
+      </div>
+    </div>
+
+    <!-- AREA GENITORI -->
+    <div id="genitori-page" class="page">
+      <h2 data-key="progressTitle"><i class="fas fa-chart-line"></i> Progresso di Matteo (4 anni, domicilio)</h2>
+      <div class="card" data-key="progressDesc">🎉 6 lezioni completate! Sa salutare, nominare colori e chiedere "posso?". ✅</div>
+      <h2 data-key="tipsTitle">📘 Consigli offline per l'italiano a casa</h2>
+      <ul class="card" id="tipsList"></ul>
+      <h2 data-key="faqTitle">❓ Domande frequenti (Dolce Lingua)</h2>
+      <div id="faqContainer"></div>
+    </div>
+
+    <!-- CONTATTI -->
+    <div id="contatti-page" class="page">
+      <h2 data-key="contactTitle"><i class="fas fa-address-card"></i> Contattaci – solo lezioni in presenza</h2>
+      <div class="flex-2col">
+        <div class="card"><i class="fab fa-whatsapp" style="color:#25D366;"></i> WhatsApp: 351 123 4567</div>
+        <div class="card"><i class="fas fa-envelope"></i> ciao@dolcelingua.it</div>
+      </div>
+      <form id="contattoForm">
+        <input type="text" placeholder="Nome" id="nameInput" data-key-placeholder="namePlace">
+        <input type="email" placeholder="Email" id="emailInput" data-key-placeholder="emailPlace">
+        <input type="tel" placeholder="Telefono" id="phoneInput" data-key-placeholder="phonePlace">
+        <textarea id="msgInput" data-key-placeholder="msgPlace" placeholder="Preferisci sede o domicilio? Età del bambino..."></textarea>
+        <button class="btn" type="submit" data-key="sendBtn">Invia richiesta</button>
+      </form>
+      <div class="pill" style="margin-top:1rem;" data-key="offlineNote">🔔 Ricordiamo: niente lezioni online – solo dal vivo!</div>
+    </div>
+  </main>
+  <footer>
+    <p><span data-key="footer1">🍬 Dolce Lingua – L'italiano dolce per bambini da 0 a 12 anni – Lezioni in sede o a domicilio</span></p>
+    <p><i class="fas fa-location-dot"></i> <span data-key="footerAddr">Studio in 14 MacFarlane st, Marshall 3264 VIC</span> | <i class="fab fa-whatsapp"></i> 3511234567</p>
+    <p data-key="footerCopy">© 2025 Dolce Lingua – presenza, relazioni, cuore</p>
+  </footer>
+
+  <div id="modal" class="modal"><div class="modal-content"><p id="modalMsg">Grazie! Ti contatteremo per organizzare la lezione di prova gratuita.</p><button class="btn" id="closeModal">Chiudi</button></div></div>
+
+  <script>
+    // Dizionario bilingue: italiano (default) e inglese australiano
+    const translations = {
+      it: {
+        navHome: "Home", navMethod: "Metodo", navWhere: "Dove e come", navGames: "Giochi", navParents: "Area Genitori", navContact: "Contatti",
+        heroTitle: "🍬 Dolce Lingua", heroSub: "L'italiano che viene da te – in sede o a casa tua, da 0 a 12 anni", heroDesc: "Lezioni di italiano in presenza, con metodo dolce e sensoriale. Niente schermi, solo relazione vera.", heroBtn: "📅 Prova gratuita",
+        studioTitle: "📍 Studio Dolce Lingua", studioDesc: "14 MacFarlane st, Marshall 3264 VIC – aule con materiali tattili e accoglienza calda.",
+        homeTitle: "🏠 A casa tua", homeDesc: "L’insegnante viene direttamente a domicilio. Orari flessibili, massima comodità per tutta la famiglia.",
+        howItWorksTitle: "Come funziona", activitiesTitle: "Cosa facciamo in aula / a casa", testimonialsTitle: "Ci credono i genitori", infoBtnText: "Richiedi informazioni",
+        methodTitle: "📖 Il metodo Dolce Lingua – solo presenza, 0-12 anni", methodDesc: "Nessuno schermo. Impariamo con corpo, voce, oggetti reali e tanto affetto. Approccio ispirato a Montessori e alla pedagogia narrativa.",
+        tableTitle: "🎯 Tabella riassuntiva", ageCol: "Età", durationCol: "Durata lezione", maxKidsCol: "Max bambini (sede)", homeCol: "Domicilio",
+        age0:"0-2 anni", age3:"3-5 anni", age6:"6-8 anni", age9:"9-12 anni", dur0:"30 min", dur3:"45 min", dur6:"60 min", dur9:"75 min", yes:"✅ sì",
+        whereTitle: "Una sede + lezioni a domicilio", studioCardTitle: "Studio Dolce Lingua", studioCardAddr: "📍 14 MacFarlane st, Marshall 3264 VIC\n📅 Martedì e Giovedì 9:30-18:00\nAmbiente attrezzato con tappeti, libri, materiali tattili.", parking: "Parcheggio facile",
+        homeCardTitle: "A casa tua", homeCardDesc: "Raggiungiamo entro 30 km da Geelong centro. Orari flessibili, lezioni individuali o a piccoli gruppi di fratellini.", quoteBtn: "Richiedi preventivo domicilio",
+        scheduleTitle: "🗓️ Orari sede", homeFlexNote: "Domicilio: su appuntamento, tutti i giorni",
+        gamesTitle: "I nostri giochi in presenza", demoTitle: "🎮 Assaggia il metodo (demo)", quizPrompt: "🐶 Ascolta e scegli l’immagine corretta", optionDog: "Cane", optionCat: "Gatto", quizFooter: "⭐ A Dolce Lingua giochiamo insieme dal vivo, ridendo e toccando oggetti veri!", printTitle: "📄 Stampabili per genitori", printRhymes: "Filastrocche illustrate (PDF fittizio)", printWorksheets: "Schede dei vocaboli da colorare",
+        progressTitle: "Progresso di Matteo (4 anni, domicilio)", progressDesc: "🎉 6 lezioni completate! Sa salutare, nominare colori e chiedere \"posso?\". ✅", tipsTitle: "📘 Consigli offline per l'italiano a casa", faqTitle: "❓ Domande frequenti (Dolce Lingua)",
+        contactTitle: "Contattaci – solo lezioni in presenza", namePlace: "Nome", emailPlace: "Email", phonePlace: "Telefono", msgPlace: "Preferisci sede o domicilio? Età del bambino...", sendBtn: "Invia richiesta", offlineNote: "🔔 Ricordiamo: niente lezioni online – solo dal vivo!",
+        footer1: "🍬 Dolce Lingua – L'italiano dolce per bambini da 0 a 12 anni – Lezioni in sede o a domicilio", footerAddr: "Studio in 14 MacFarlane st, Marshall 3264 VIC", footerCopy: "© 2025 Dolce Lingua – presenza, relazioni, cuore",
+        howSteps: [{title:"1. Scegli modalità", desc:"Sede o domicilio, fascia d’età e orario."},{title:"2. Lezione di prova", desc:"Gratuita, senza impegno, per conoscere l’insegnante."},{title:"3. Percorso dolce", desc:"Programma personalizzato giocando, sempre in presenza."}],
+        ageGroupDetails: [
+          {title:"0-2 anni", desc:"Prime parole, ninne nanne, giochi con mamma/papà"},
+          {title:"3-5 anni", desc:"Vocabolario base, filastrocche animate e burattini"},
+          {title:"6-8 anni", desc:"Prime letture, giochi di ruolo, racconti"},
+          {title:"9-12 anni", desc:"Scrittura creativa, conversazione e mini progetti"}
+        ],
+        scheduleItems: ["🐣 0-2 anni: martedì 10:00-10:30 + giovedì 16:00-16:30","🐥 3-5 anni: martedì 11:00-11:45, giovedì 17:00-17:45","📚 6-8 anni: martedì 15:00-16:00","✍️ 9-12 anni: giovedì 15:00-16:15"],
+        tipsList: ["📖 Leggi una storia ogni sera in italiano","🎵 Canta canzoncine in macchina","🧸 Giochi di ruolo con pupazzi"],
+        gamesStatic: ["Tombola delle parole","Memory tattile","Caccia al tesoro lessicale"]
+      },
+      en: {
+        navHome: "Home", navMethod: "Method", navWhere: "Where & How", navGames: "Games", navParents: "Parents' Area", navContact: "Contact",
+        heroTitle: "🍬 Dolce Lingua", heroSub: "Italian that comes to you – at our studio or your home, ages 0-12", heroDesc: "In-person Italian lessons with a gentle, sensory method. No screens, only real connection.", heroBtn: "📅 Free trial",
+        studioTitle: "📍 Dolce Lingua Studio", studioDesc: "14 MacFarlane st, Marshall 3264 VIC Rome – sensory-rich classrooms with warm atmosphere.",
+        homeTitle: "🏠 At your home", homeDesc: "Teacher comes to you. Flexible times, maximum comfort for the whole family.",
+        howItWorksTitle: "How it works", activitiesTitle: "What we do in class / at home", testimonialsTitle: "What parents say", infoBtnText: "Request info",
+        methodTitle: "📖 The Dolce Lingua method – in person only, 0-12 years", methodDesc: "No screens. We learn through body, voice, real objects and plenty of care. Inspired by Montessori and narrative pedagogy.",
+        tableTitle: "🎯 Quick guide", ageCol: "Age", durationCol: "Lesson length", maxKidsCol: "Max kids (studio)", homeCol: "Home visit",
+        age0:"0-2 years", age3:"3-5 years", age6:"6-8 years", age9:"9-12 years", dur0:"30 min", dur3:"45 min", dur6:"60 min", dur9:"75 min", yes:"✅ yes",
+        whereTitle: "One studio + home lessons", studioCardTitle: "Dolce Lingua Studio", studioCardAddr: "📍 14 MacFarlane st, Marshall 3264 VIC\n📅 Tue & Thu 9:30am-6pm\nCosy space with mats, books, tactile materials.", parking: "Easy parking",
+        homeCardTitle: "At your home", homeCardDesc: "We travel within 15 km from central Rome. Flexible schedule, individual or small sibling groups.", quoteBtn: "Request home lesson quote",
+        scheduleTitle: "🗓️ Studio timetable", homeFlexNote: "Home lessons: by appointment, every day",
+        gamesTitle: "Our in-person games", demoTitle: "🎮 Taste the method (demo)", quizPrompt: "🐶 Listen and pick the correct image", optionDog: "Dog", optionCat: "Cat", quizFooter: "⭐ At Dolce Lingua we play together in real life, laughing and touching real objects!", printTitle: "📄 Printables for parents", printRhymes: "Illustrated nursery rhymes (sample PDF)", printWorksheets: "Vocabulary colouring sheets",
+        progressTitle: "Matteo's progress (4yo, home lessons)", progressDesc: "🎉 6 lessons completed! He can say hello, name colours and ask 'may I?'. ✅", tipsTitle: "📘 Offline tips for Italian at home", faqTitle: "❓ FAQs (Dolce Lingua)",
+        contactTitle: "Contact us – in-person lessons only", namePlace: "Name", emailPlace: "Email", phonePlace: "Phone", msgPlace: "Studio or home? Child's age...", sendBtn: "Send request", offlineNote: "🔔 Remember: no online lessons – only face to face!",
+        footer1: "🍬 Dolce Lingua – Sweet Italian for kids 0-12 – Lessons at our studio or your home", footerAddr: "Studio at 14 MacFarlane st, Marshall 3264 VIC Rome", footerCopy: "© 2025 Dolce Lingua – presence, relationships, heart",
+        howSteps: [{title:"1. Choose mode", desc:"Studio or home, age group & time."},{title:"2. Free trial lesson", desc:"No obligation, meet the teacher."},{title:"3. Sweet journey", desc:"Personalised playful program, always in person."}],
+        ageGroupDetails: [
+          {title:"0-2 years", desc:"First words, lullabies, parent-child games"},
+          {title:"3-5 years", desc:"Basic vocabulary, puppet play, action rhymes"},
+          {title:"6-8 years", desc:"First readings, role play, stories"},
+          {title:"9-12 years", desc:"Creative writing, conversation, mini projects"}
+        ],
+        scheduleItems: ["🐣 0-2 yrs: Tue 10:00-10:30 + Thu 16:00-16:30","🐥 3-5 yrs: Tue 11:00-11:45, Thu 17:00-17:45","📚 6-8 yrs: Tue 15:00-16:00","✍️ 9-12 yrs: Thu 15:00-16:15"],
+        tipsList: ["📖 Read a story in Italian every evening","🎵 Sing songs in the car","🧸 Role play with toys"],
+        gamesStatic: ["Word Bingo","Tactile Memory Game","Vocabulary Treasure Hunt"]
+      }
+    };
+
+    let currentLang = 'it';
+    const elementsWithKey = document.querySelectorAll('[data-key]');
+    function updateLanguage() {
+      const t = translations[currentLang];
+      elementsWithKey.forEach(el => {
+        const key = el.getAttribute('data-key');
+        if(t[key] !== undefined) {
+          if(el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+            const placeKey = el.getAttribute('data-key-placeholder');
+            if(placeKey && t[placeKey]) el.placeholder = t[placeKey];
+            else el.placeholder = t[key] || '';
+          } else {
+            el.innerHTML = t[key];
+          }
+        }
+      });
+      // Placeholders specifici
+      document.querySelectorAll('[data-key-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-key-placeholder');
+        if(t[key]) el.placeholder = t[key];
+      });
+      // Nav items span
+      document.querySelectorAll('[data-page] span').forEach((span, idx) => {
+        const parent = span.closest('[data-page]');
+        if(parent) {
+          const navKey = parent.getAttribute('data-key');
+          if(navKey && t[navKey]) span.innerText = t[navKey];
+        }
+      });
+      // Liste dinamiche che dipendono dalla lingua
+      renderDynamicContent();
+      // Rigioca quiz
+      const quizDom = document.getElementById('quizDomanda');
+      if(quizDom) quizDom.innerText = currentLang === 'it' ? "Parola: CANE" : "Word: DOG";
+      const dogSpan = document.querySelector('.quiz-opt[data-word="cane"] span');
+      const catSpan = document.querySelector('.quiz-opt[data-word="gatto"] span');
+      if(dogSpan) dogSpan.innerText = t.optionDog;
+      if(catSpan) catSpan.innerText = t.optionCat;
+    }
+
+    function renderDynamicContent() {
+      const t = translations[currentLang];
+      // How cards
+      const howContainer = document.getElementById('howCards');
+      if(howContainer && t.howSteps) {
+        howContainer.innerHTML = t.howSteps.map(s => `<div class="card"><i class="fas fa-child fa-2x"></i><h3>${s.title}</h3><p>${s.desc}</p></div>`).join('');
+      }
+      // Age groups
+      const ageContainer = document.getElementById('ageGroups');
+      if(ageContainer && t.ageGroupDetails) {
+        ageContainer.innerHTML = t.ageGroupDetails.map(g => `<div class="card"><i class="fas fa-baby-carriage"></i> <strong>${g.title}</strong><br>${g.desc}</div>`).join('');
+      }
+      // Schedule list
+      const scheduleUl = document.getElementById('scheduleList');
+      if(scheduleUl && t.scheduleItems) scheduleUl.innerHTML = t.scheduleItems.map(i => `<li>${i}</li>`).join('');
+      // Tips list
+      const tipsUl = document.getElementById('tipsList');
+      if(tipsUl && t.tipsList) tipsUl.innerHTML = t.tipsList.map(i => `<li>${i}</li>`).join('');
+      // Games static
+      const gamesContainer = document.getElementById('gamesList');
+      if(gamesContainer && t.gamesStatic) gamesContainer.innerHTML = t.gamesStatic.map(g => `<div class="card"><i class="fas fa-dice"></i> ${g}</div>`).join('');
+      // Attività (fixed icons + trad)
+      const attivita = [
+        { icona: "🎭", titoloKey: "storytelling", descKey: "storyDesc", eta: "3-8 anni" },
+        { icona: "🍎", titoloKey: "lab", descKey: "labDesc", eta: "2-6 anni" },
+        { icona: "🎶", titoloKey: "songs", descKey: "songsDesc", eta: "0-6 anni" },
+        { icona: "🃏", titoloKey: "cards", descKey: "cardsDesc", eta: "4-12 anni" }
+      ];
+      const actTrans = {
+        it: { storytelling:"Racconti animati", storyDesc:"Con kamishibai e burattini", lab:"Laboratorio delle parole", labDesc:"Oggetti veri da toccare", songs:"Canzoni in cerchio", songsDesc:"Cantiamo e mimiamo", cards:"Giochi con carte", cardsDesc:"Flashcards giganti" },
+        en: { storytelling:"Storytelling with puppets", storyDesc:"Kamishibai & puppets", lab:"Word workshop", labDesc:"Real objects to touch", songs:"Circle songs", songsDesc:"Sing & gesture together", cards:"Flashcard games", cardsDesc:"Giant flashcards with movement" }
+      };
+      const actContainer = document.getElementById('attivitaContainer');
+      if(actContainer) {
+        actContainer.innerHTML = attivita.map(a => `<div class="card"><div style="font-size:2rem">${a.icona}</div><h3>${actTrans[currentLang][a.titoloKey]}</h3><p>${actTrans[currentLang][a.descKey]}</p><span class="pill">${a.eta}</span></div>`).join('');
+      }
+      // Testimonianze bilingue
+      const testi = { it: [{ testo:"Sofia (3 anni) non vede l'ora che arrivi il martedì!", autore:"Chiara"},{ testo:"Lezioni a domicilio: comodità eccellente.", autore:"Marco"},{ testo:"Finalmente un corso vero senza schermi.", autore:"Valentina"}], en: [{ testo:"Sofia (3yo) can't wait for Tuesday's lesson!", autore:"Chiara"},{ testo:"Home lessons: excellent convenience.", autore:"Marco"},{ testo:"Finally a real course without screens.", autore:"Valentina"}] };
+      const testContainer = document.getElementById('testimonianzeContainer');
+      if(testContainer) testContainer.innerHTML = testi[currentLang].map(t => `<div class="card">“${t.testo}” <br>— ${t.autore}</div>`).join('');
+      // FAQ
+      const faqData = { it: [{ q:"Meglio sede o domicilio?", a:"Dipende: in sede socialità; a domicilio flessibilità."},{ q:"Quali sono i costi?", a:"Lezione prova gratis. Pacchetti da 65€/mese sede, domicilio da 85€."},{ q:"Come avviene la lezione a casa?", a:"Insegnante porta materiali, genitore può assistere."},{ q:"Posso assistere?", a:"Sì, soprattutto per 0-3 anni."}], en: [{ q:"Studio or home?", a:"Studio: social; home: flexible."},{ q:"Costs?", a:"Free trial. Studio from €65/month, home from €85."},{ q:"How does home lesson work?", a:"Teacher brings materials, parent may observe."},{ q:"Can I attend?", a:"Yes, especially for 0-3 years."}] };
+      const faqContainer = document.getElementById('faqContainer');
+      if(faqContainer) {
+        faqContainer.innerHTML = faqData[currentLang].map((f,idx) => `<div class="faq-item" data-idx="${idx}"><div class="faq-question">${f.q} <i class="fas fa-chevron-down"></i></div><div class="faq-answer">${f.a}</div></div>`).join('');
+        document.querySelectorAll('.faq-item').forEach(el => {
+          el.addEventListener('click', () => { const ans = el.querySelector('.faq-answer'); if(ans) ans.style.display = ans.style.display === 'block' ? 'none' : 'block'; });
+        });
+      }
+    }
+
+    // Lingua
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        currentLang = btn.getAttribute('data-lang');
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        updateLanguage();
+      });
+    });
+
+    // Funzioni di navigazione / modali (invariate)
+    function showPage(pageId) { ['home','metodo','dove','giochi','genitori','contatti'].forEach(p => { document.getElementById(`${p}-page`).classList.remove('active-page'); }); document.getElementById(`${pageId}-page`).classList.add('active-page'); if(window.innerWidth<=768) document.getElementById('navMenu').classList.remove('show'); }
+    document.querySelectorAll('[data-page]').forEach(el => el.addEventListener('click', (e) => showPage(el.getAttribute('data-page'))));
+    document.getElementById('menuToggle')?.addEventListener('click', () => document.getElementById('navMenu').classList.toggle('show'));
+    document.getElementById('ctaPrenotaHome')?.addEventListener('click', () => { document.getElementById('modalMsg').innerHTML = currentLang === 'it' ? "Grazie! Ti contatteremo per la lezione di prova gratuita." : "Thanks! We'll contact you for your free trial lesson."; document.getElementById('modal').style.display = 'flex'; });
+    document.getElementById('infoBtn')?.addEventListener('click', () => showPage('contatti'));
+    document.getElementById('domicilioBtn')?.addEventListener('click', () => showPage('contatti'));
+    document.getElementById('closeModal')?.addEventListener('click', () => document.getElementById('modal').style.display = 'none');
+    document.getElementById('contattoForm')?.addEventListener('submit', (e) => { e.preventDefault(); document.getElementById('modalMsg').innerHTML = currentLang === 'it' ? "Richiesta inviata! Ti risponderemo per una lezione in presenza." : "Request sent! We'll get back to you about in-person lessons."; document.getElementById('modal').style.display = 'flex'; e.target.reset(); });
+    window.onclick = (e) => { if(e.target === document.getElementById('modal')) document.getElementById('modal').style.display = 'none'; };
+    // Quiz setup
+    function setupQuiz() { document.querySelectorAll('.quiz-opt').forEach(btn => { btn.removeEventListener('click', quizHandler); btn.addEventListener('click', quizHandler); }); }
+    function quizHandler(e) { const scelta = e.currentTarget.getAttribute('data-word'); const correct = (currentLang === 'it' && scelta === 'cane') || (currentLang === 'en' && scelta === 'cane'); const fb = document.getElementById('feedbackQuiz'); if(correct) fb.innerHTML = currentLang === 'it' ? '✅ Corretto! A Dolce Lingua giochiamo dal vivo! 🧸' : '✅ Correct! At Dolce Lingua we play together in real life! 🧸'; else fb.innerHTML = currentLang === 'it' ? '❌ Riprova! Era CANE. Immagina il gioco in aula!' : '❌ Try again! It was DOG. Imagine playing this in our studio!'; setTimeout(()=>fb.innerHTML='',2000); }
+    setupQuiz();
+    updateLanguage();
+    showPage('home');
+  </script>
+</body>
+</html>
