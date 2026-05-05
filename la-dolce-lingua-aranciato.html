@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Dolce Lingua – Italian for Little Ones | Tema Aranciato</title>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<link rel="stylesheet" href="la-dolce-lingua-aranciato.css">
+</head>
+<body>
+
+<!-- ───── STICKY LANG BAR ───── -->
+<nav class="lang-bar">
+  <span class="logo-small"><i class="fas fa-candy-cane"></i> La Dolce Lingua</span>
+  <div class="lang-toggle">
+    <button id="btn-en" class="active" onclick="setLang('en')">🇦🇺 EN</button>
+    <button id="btn-it" onclick="setLang('it')">🇮🇹 IT</button>
+  </div>
+</nav>
+
+<!-- ───── HERO ───── -->
+<header class="hero">
+  <span class="hero-eyebrow" data-en="Italian lessons for little ones" data-it="Lezioni d'italiano per i più piccoli">Italian lessons for little ones</span>
+  <h1><i class="fas fa-candy-cane" style="color:var(--primary-light); font-size:0.6em;"></i> La <em>Dolce</em><br>Lingua</h1>
+  <p class="hero-sub" data-en="L'italiano che coccola i più piccoli – live lessons" data-it="L'italiano che coccola i più piccoli – lezioni dal vivo">L'italiano che coccola i più piccoli – live lessons</p>
+  <div class="hero-badges">
+    <div class="badge"><span class="dot"></span><i class="fas fa-child" style="color:var(--primary-light);"></i><span data-en="Ages 0–12" data-it="0–12 anni">Ages 0–12</span></div>
+    <div class="badge"><span class="dot terra"></span><i class="fas fa-mobile-alt" style="color:var(--primary);"></i><span data-en="No screens, ever" data-it="Nessuno schermo">No screens, ever</span></div>
+    <div class="badge"><span class="dot gold"></span><i class="fas fa-map-marker-alt" style="color:#F4A261;"></i><span data-en="In-person & home visits" data-it="In sede e a domicilio">In-person & home visits</span></div>
+    <div class="badge"><span class="dot"></span><i class="fas fa-book-open" style="color:var(--primary-light);"></i><span data-en="Montessori-inspired method" data-it="Metodo montessoriano">Montessori-inspired method</span></div>
+  </div>
+  <div class="hero-divider"></div>
+</header>
+
+<!-- ───── WHERE ───── -->
+<hr class="sep">
+<section id="where">
+  <p class="section-label" data-en="Where we meet" data-it="Dove ci troviamo">Where we meet</p>
+  <h2><i class="fas fa-map-pin"></i> <span data-en="Two ways to <em>learn</em>" data-it="Due modi per <em>imparare</em>">Two ways to <em>learn</em></span></h2>
+  <div class="venue-grid">
+
+    <div class="venue-card library">
+      <i class="fas fa-building venue-icon"></i>
+      <h3 data-en="Group lessons at our venue" data-it="Lezioni di gruppo in sede">Group lessons at our venue</h3>
+      <div class="md-rendered" id="venue-md"></div>
+    </div>
+
+    <div class="venue-card home">
+      <i class="fas fa-home venue-icon"></i>
+      <h3 data-en="Private lessons at your home" data-it="Lezioni private a domicilio">Private lessons at your home</h3>
+      <p data-en="The teacher comes to you. Your child learns in their own space, surrounded by familiar objects — which become the very tools of the lesson." data-it="L'insegnante viene da voi. Il bambino impara nel proprio ambiente, circondato da oggetti familiari che diventano gli strumenti stessi della lezione.">The teacher comes to you. Your child learns in their own space, surrounded by familiar objects — which become the very tools of the lesson.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ───── METHOD ───── -->
+<hr class="sep">
+<section id="method">
+  <p class="section-label" data-en="Our approach" data-it="Il nostro approccio">Our approach</p>
+  <h2><i class="fas fa-book-open"></i> <span data-en="Learning with <em>body, voice & real things</em>" data-it="Imparare con <em>corpo, voce e oggetti reali</em>">Learning with <em>body, voice & real things</em></span></h2>
+  <div id="method-content"></div>
+  <div class="no-screens">
+    <div class="icon-wrap"><i class="fas fa-ban"></i></div>
+    <div>
+      <strong data-en="Absolutely no screens." data-it="Assolutamente nessuno schermo.">Absolutely no screens.</strong>
+      <p data-en="Italian is learned through the body, the voice, real objects, and genuine human relationships. Not a single tablet, projector, or phone in sight — ever." data-it="L'italiano si impara con il corpo, la voce, oggetti reali e la relazione umana. Nessun tablet, proiettore o telefono — mai.">Italian is learned through the body, the voice, real objects, and genuine human relationships. Not a single tablet, projector, or phone in sight — ever.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ───── AGE BANDS ───── -->
+<hr class="sep">
+<section id="ages">
+  <p class="section-label" data-en="Age groups" data-it="Fasce d'età">Age groups</p>
+  <h2><i class="fas fa-baby-carriage"></i> <span data-en="A lesson shaped for <em>every stage</em>" data-it="Una lezione pensata per <em>ogni fase</em>">A lesson shaped for <em>every stage</em></span></h2>
+  <div id="ages-content"></div>
+</section>
+
+<!-- ───── SUMMARY TABLE ───── -->
+<hr class="sep">
+<section id="table">
+  <p class="section-label" data-en="Quick reference" data-it="Tabella riassuntiva">Quick reference</p>
+  <h2><i class="fas fa-table"></i> <span data-en="At a <em>glance</em>" data-it="In sintesi <em>rapida</em>">At a <em>glance</em></span></h2>
+  <div id="table-content"></div>
+</section>
+
+<!-- ───── GAMES ───── -->
+<hr class="sep">
+<section id="games">
+  <p class="section-label" data-en="In-person activities" data-it="Giochi in presenza">In-person activities</p>
+  <h2><i class="fas fa-dice-d6"></i> <span data-en="Our favourite <em>games</em>" data-it="I nostri <em>giochi</em> preferiti">Our favourite <em>games</em></span></h2>
+  <div id="games-content"></div>
+</section>
+
+<!-- ───── PARENTS AREA ───── -->
+<hr class="sep">
+<section id="parents">
+  <p class="section-label" data-en="For parents" data-it="Area genitori">For parents</p>
+  <h2><i class="fas fa-users"></i> <span data-en="Take the <em>learning home</em>" data-it="Porta l'<em>apprendimento a casa</em>">Take the <em>learning home</em></span></h2>
+  <p style="color:var(--ink-soft); max-width: 640px;" data-en="The lesson doesn't end when the class does. These printables help you continue the Italian experience at home — no screens needed, of course." data-it="La lezione non finisce quando la classe finisce. Questi stampabili vi aiutano a continuare l'esperienza italiana a casa — senza schermi, naturalmente.">The lesson doesn't end when the class does. These printables help you continue the Italian experience at home — no screens needed, of course.</p>
+
+  <div class="printable-zone">
+    <h3><i class="fas fa-print"></i> <span data-en="Printable materials" data-it="Materiali stampabili">Printable materials</span></h3>
+    <p data-en="PDFs are added here as they become available. Each one is designed to be printed, cut, and used as a hands-on activity — no screens required." data-it="I PDF vengono aggiunti qui man mano che sono disponibili. Ognuno è progettato per essere stampato, ritagliato e usato come attività pratica.">PDFs are added here as they become available. Each one is designed to be printed, cut, and used as a hands-on activity — no screens required.</p>
+    <ul class="pdf-list" id="pdf-list">
+      <li class="pdf-item">
+        <div class="pdf-icon"><i class="fas fa-file-pdf"></i></div>
+        <div>
+          <div data-en="Filastrocche stagionali – seasonal nursery rhymes" data-it="Filastrocche stagionali">Filastrocche stagionali – seasonal nursery rhymes</div>
+          <a href="La Dolce Lingua - Filastrocche stagionali _ Stampabile.pdf" download style="font-size:13px; color:var(--primary); font-weight:600;"><i class="fas fa-download"></i> Scarica PDF</a>
+        </div>
+      </li>
+      <li class="pdf-item">
+        <div class="pdf-icon"><i class="fas fa-file-pdf"></i></div>
+        <div>
+          <div data-en="Schede dei colori – colour flashcards (0–5 yrs)" data-it="Schede dei colori – flashcard per 0–5 anni">Schede dei colori – colour flashcards (0–5 yrs)</div>
+          <a href="La Dolce Lingua - Schede dei colori _ Stampabile.pdf" download style="font-size:13px; color:var(--primary); font-weight:600;"><i class="fas fa-download"></i> Scarica PDF</a>
+        </div>
+      </li>
+      <li class="pdf-item">
+        <div class="pdf-icon"><i class="fas fa-file-pdf"></i></div>
+        <div>
+          <div data-en="Vocaboli del corpo – body vocabulary sheet" data-it="Vocaboli del corpo – scheda del corpo umano">Vocaboli del corpo – body vocabulary sheet</div>
+            <a href="La Dolce Lingua - Il corpo umano _ Body Vocabulary (IT_EN-AU) _ Stampabile.pdf" download style="font-size:13px; color:var(--primary); font-weight:600;"><i class="fas fa-download"></i> Scarica PDF</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ───── FAQ ───── -->
+<hr class="sep">
+<section id="faq">
+  <p class="section-label"><i class="fas fa-question-circle"></i> FAQ</p>
+  <h2><i class="fas fa-comment-dots"></i> <span data-en="Questions from <em>parents</em>" data-it="Domande dei <em>genitori</em>">Questions from <em>parents</em></span></h2>
+  <div id="faq-content"></div>
+</section>
+
+<!-- ───── FOOTER ───── -->
+<footer>
+  <div class="footer-logo"><i class="fas fa-candy-cane"></i> La Dolce Lingua</div>
+  <p><i class="fas fa-location-dot"></i> <span data-en="Italian lessons for children aged 0–12 · In-person & home visits · No screens" data-it="Lezioni di italiano per bambini da 0 a 12 anni · In sede e a domicilio · Nessuno schermo">Italian lessons for children aged 0–12 · In-person & home visits · No screens</span></p>
+  <p style="margin-top:8px;"><i class="fas fa-heart" style="color:var(--primary);"></i> <span data-en="presence, relationships, heart" data-it="presenza, relazioni, cuore">presence, relationships, heart</span></p>
+</footer>
+
+<script src="la-dolce-lingua.js"></script>
+</body>
+</html>
