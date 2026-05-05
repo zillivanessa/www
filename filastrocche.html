@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Dolce Lingua - Filastrocche stagionali | Stampabile PDF</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', 'Quicksand', 'Comic Neue', 'Trebuchet MS', sans-serif;
+      background: #e8e0d0;
+      padding: 0.3in;
+      color: #2d3e2b;
+    }
+    @media print {
+      body {
+        background: white;
+        padding: 0.15in;
+        margin: 0;
+      }
+      .container {
+        background: white;
+        box-shadow: none;
+        padding: 0;
+        margin: 0;
+      }
+      .scheda {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ccc;
+        margin-bottom: 1.2rem;
+      }
+      .grid {
+        gap: 1rem;
+      }
+      .attivita, .testo-filastrocca {
+        background: #fef7e8;
+      }
+      h1, .sub, footer {
+        break-inside: avoid;
+      }
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 32px;
+      padding: 0.6rem;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+    }
+    h1 {
+      text-align: center;
+      color: #D68B45;
+      font-size: 2.2rem;
+      margin-bottom: 0.3rem;
+      margin-top: 0.2rem;
+    }
+    .sub {
+      text-align: center;
+      font-size: 1rem;
+      color: #8B6B3D;
+      margin-bottom: 1.2rem;
+      border-bottom: 2px dashed #E9C89B;
+      padding-bottom: 0.6rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.3rem;
+      margin-top: 0.8rem;
+    }
+    .scheda {
+      background: #ffffff;
+      border-radius: 32px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.06);
+      overflow: hidden;
+      break-inside: avoid;
+      page-break-inside: avoid;
+      border: 1px solid #E6D5B8;
+      display: flex;
+      flex-direction: column;
+    }
+    .season-header {
+      padding: 0.9rem;
+      text-align: center;
+      color: white;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.15);
+    }
+    .season-name {
+      font-size: 1.8rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    .filastrocca {
+      padding: 1rem 1.2rem;
+      line-height: 1.5;
+      flex: 1;
+    }
+    .testo-filastrocca {
+      background: #FEFAE6;
+      padding: 1rem;
+      border-radius: 24px;
+      font-family: 'Courier New', 'Trebuchet MS', monospace;
+      font-size: 0.95rem;
+      white-space: pre-line;
+      margin-bottom: 0.8rem;
+      border-left: 6px solid #E9B35F;
+    }
+    .attivita {
+      background: #F8F2E3;
+      border-radius: 20px;
+      padding: 0.7rem 0.9rem;
+      margin: 0.6rem 0;
+    }
+    .attivita h4 {
+      color: #C46A2B;
+      margin-bottom: 0.3rem;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .attivita p, .attivita ul {
+      font-size: 0.85rem;
+      margin-left: 1rem;
+    }
+    .livello {
+      display: inline-block;
+      background: #FCE9DE;
+      padding: 0.2rem 0.7rem;
+      border-radius: 40px;
+      font-size: 0.65rem;
+      font-weight: bold;
+      margin-top: 0.5rem;
+      color: #9B5E2C;
+    }
+    .disegno {
+      text-align: center;
+      font-size: 1.5rem;
+      background: #FFF8ED;
+      border-radius: 20px;
+      padding: 0.4rem;
+      margin-top: 0.5rem;
+    }
+    footer {
+      text-align: center;
+      margin-top: 1.5rem;
+      font-size: 0.7rem;
+      color: #A67B48;
+      border-top: 1px solid #EAD5B0;
+      padding-top: 0.8rem;
+    }
+    .badge-eta {
+      background: #F7B05E20;
+      border-radius: 30px;
+      padding: 0.15rem 0.6rem;
+      font-size: 0.65rem;
+      display: inline-block;
+      margin-right: 0.4rem;
+    }
+    .music-note {
+      font-size: 0.8rem;
+      color: #C97E3A;
+      margin-top: 0.3rem;
+    }
+    /* Evita rotture brutte dentro le schede */
+    @media print {
+      body {
+        padding: 0.1in;
+      }
+      .grid {
+        display: block;
+        width: 100%;
+      }
+      .scheda {
+        margin-bottom: 1.2rem;
+        width: 100%;
+        page-break-after: avoid;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+      .season-header, .filastrocca, .attivita {
+        break-inside: avoid;
+      }
+      h2, h3, h4 {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>🍬 La Dolce Lingua – Filastrocche delle stagioni 🌸🍂❄️☀️</h1>
+  <div class="sub">Imparare l'italiano con rime, ritmo e fantasia<br>Da 0 a 12 anni – stampa in formato A4 (ogni scheda rimane intera)</div>
+
+  <div class="grid">
+
+    <!-- PRIMAVERA 1 -->
+    <div class="scheda">
+      <div class="season-header" style="background: #A8D08D; color: #2C4A2E;">
+        <div class="season-name">🌸 PRIMAVERA</div>
+        <div style="font-size:0.75rem;">La sveglia della natura</div>
+      </div>
+      <div class="filastrocca">
+        <div class="testo-filastrocca">
+          🌷 <strong>Il risveglio del giardino</strong> 🌷<br><br>
+          Spunta il sole tra i ciliegi,<br>
+          il vento soffia tra gli steli.<br>
+          La farfalla fa un balletto,<br>
+          l’ape ronza sul vasetto.<br>
+          Goccioline di rugiada,<br>
+          la primavera è arrivata!
+        </div>
+        <div class="attivita">
+          <h4>🎨 0–3 anni (insieme a mamma/papà)</h4>
+          <p>👉 Ascolta la filastrocca mentre guardi un disegno di fiori. Ripeti “sole, fiore, ape”.<br>👉 Movimento: agitare le braccia come farfalle.</p>
+        </div>
+        <div class="attivita">
+          <h4>📖 4–7 anni</h4>
+          <p>Disegna la scena: ciliegio, farfalla, ape. Impara i primi 4 versi.</p>
+          <div class="disegno">🦋 + 🌸 + 🐝 = PRIMAVERA</div>
+        </div>
+        <div class="attivita">
+          <h4>✍️ 8–12 anni</h4>
+          <p>Riscrivi cambiando animali (coccinella) e aggiungi una strofa sui profumi.</p>
+        </div>
+        <div class="livello">🎯 0-12 – Rima, lessico, gestualità</div>
+      </div>
+    </div>
+
+    <!-- PRIMAVERA 2: pioggia -->
+    <div class="scheda">
+      <div class="season-header" style="background: #8DBF8C; color: #1F3B1D;">
+        <div class="season-name">☔ PRIMAVERA</div>
+        <div style="font-size:0.75rem;">La pioggia gentile</div>
+      </div>
+      <div class="filastrocca">
+        <div class="testo-filastrocca">
+          💧 <strong>Piove, piove</strong> 💧<br><br>
+          Piove, piove, sulla terra,<br>
+          il semino si disserra.<br>
+          Piove, piove, sul prato,<br>
+          il ranocchio è tutto bagnato.<br>
+          Quando smette, esce l’arcobaleno,<br>
+          giallo, rosso, tutto pieno!
+        </div>
+        <div class="attivita">
+          <h4>🎨 0–3 anni</h4>
+          <p>👉 Battito delle dita sul tavolo come “gocce”. Ripeti “piove, piove”.</p>
+        </div>
+        <div class="attivita">
+          <h4>📖 4–7 anni</h4>
+          <p>Colora un arcobaleno e disegna una rana felice.</p>
+          <div class="disegno">🌈🐸 = dopo la pioggia</div>
+        </div>
+        <div class="attivita">
+          <h4>✍️ 8–12 anni</h4>
+          <p>Personificazione: “Se la pioggia parlasse, cosa direbbe?” Breve dialogo.</p>
+        </div>
+        <div class="livello">🎵 Si canta con ritmo di gocce</div>
+      </div>
+    </div>
+
+    <!-- ESTATE 1 -->
+    <div class="scheda">
+      <div class="season-header" style="background: #F4C542; color: #5E3A1A;">
+        <div class="season-name">☀️ ESTATE</div>
+        <div style="font-size:0.75rem;">Sole, mare e gelato</div>
+      </div>
+      <div class="filastrocca">
+        <div class="testo-filastrocca">
+          🍦 <strong>Estate che bontà</strong> 🍦<br><br>
+          Sole caldo, cielo blu,<br>
+          tuffo in acqua e poi un po’ più su.<br>
+          Il gelato colore fragola,<br>
+          la sabbia fine che scivola.<br>
+          Serata con le stelle accese,<br>
+          l’estate ha tutte le sorprese!
+        </div>
+        <div class="attivita">
+          <h4>🎨 0–3 anni</h4>
+          <p>👉 Mostra ombrellone, pallone. Ripeti: “SOLE”, “MARE”, “GELATO”.</p>
+        </div>
+        <div class="attivita">
+          <h4>📖 4–7 anni</h4>
+          <p>Colora scena estiva (sole, mare, gelato). Impara a gesti.</p>
+          <div class="disegno">🏖️🍦☀️ = Estate dolcissima</div>
+        </div>
+        <div class="attivita">
+          <h4>✍️ 8–12 anni</h4>
+          <p>10 parole che profumano d’estate. Scrivi una nuova strofa.</p>
+        </div>
+        <div class="livello">🌊 Vocali aperte e allegria</div>
+      </div>
+    </div>
+
+    <!-- ESTATE 2: notte stellata -->
+    <div class="scheda">
+      <div class="season-header" style="background: #E9B35F; color: #37321C;">
+        <div class="season-name">🌙 ESTATE</div>
+        <div style="font-size:0.75rem;">Notte di stelle</div>
+      </div>
+      <div class="filastrocca">
+        <div class="testo-filastrocca">
+          ✨ <strong>Stellina, stellina</strong> ✨<br><br>
+          Stellina, stellina,<br>
+          fai luce vicina.<br>
+          La luna fa un girotondo,<br>
+          e illumina il mondo.<br>
+          Cicala che canta,<br>
+          la rinfrescata è tanta.<br>
+          Buonanotte estate,<br>
+          dolce estate profumate.
+        </div>
+        <div class="attivita">
+          <h4>🎨 0–3 anni</h4>
+          <p>Canticchia accarezzando. Parole “stella”, “luna”, “cicala”.</p>
+        </div>
+        <div class="attivita">
+          <h4>📖 4–7 anni</h4>
+          <p>Disegna stelline gialle su blu notte. Incolla lustrini.</p>
+          <div class="disegno">🌠 + 🌙 = magia d’estate</div>
+        </div>
+        <div class="attivita">
+          <h4>✍️ 8–12 anni</h4>
+          <p>Poesia di ringraziamento all’estate con rime ABAB.</p>
+        </div>
+        <div class="livello">🎶 Ninna nanna estiva</div>
+      </div>
+    </div>
+
+    <!-- AUTUNNO 1 -->
+    <div class="scheda">
+      <div class="season-header" style="background: #C77A3A; color: #FFF0DA;">
+        <div class="season-name">🍂 AUTUNNO</div>
+        <div style="font-size:0.75rem;">Foglie che danzano</div>
+      </div>
+      <div class="filastrocca">
+        <div class="testo-filastrocca">
+          🍁 <strong>Foglia gialla, foglia rossa</strong> 🍁<br><br>
+          Foglia gialla, foglia rossa,<br>
+          scendi giù senza una mossa.<br>
+          Il riccio cerca una tana,<br>
+          la castagna è ancora sana.<br>
+          Scoiattolo affamato,<br>
+          l’autunno è colorato!
+        </div>
+        <div class="attivita">
+          <h4>🎨 0–3 anni</h4>
+          <p>👉 Raccogli foglie vere, toccale. Ripeti “FOGLIA, CASTAGNA, RICCIO”.</p>
+        </div>
+        <div class="attivita">
+          <h4>📖 4–7 anni</h4>
+          <p>Frottage: foglia sotto foglio, pastello arancione.</p>
+          <div class="disegno">🍂🍂🍂 = tappeto d’autunno</div>
+        </div>
+        <div class="attivita">
+          <h4>✍️ 8–12 anni</h4>
+          <p>Descrivi l’odore dell’autunno. Scrivi un haiku.</p>
+        </div>
+        <div class="livello">🧡 Caldo, avvolgente</div>
+      </div>
+    </div>
+
+    <!-- AUTUNNO 2: vendemmia -->
+    <div class="scheda">
+      <div class="season-header" style="background: #B55B2C; color: #F9EAD5;">
+        <div class="season-name">🍇 AUTUNNO</div>
+        <div style="font-size:0.75rem;">L’uva è matura</div>
+      </div>
+      <div class="filastrocca">
+        <div class="testo-filastrocca">
+          🍇 <strong>La vendemmia</strong><br><br>
+          Grappolo d’uva, dolce e viola,<br>
+          l’autunno in campagna vola.<br>
+          Cestino di vimini, mani piccine,<br>
+          raccogliamo le uva tondine.<br>
+          Tra i filari si sente una canzone,<br>
+          l’autunno è una bella stagione!
+        </div>
+        <div class="attivita">
+          <h4>🎨 0–3 anni</h4>
+          <p>👉 Palline viola (uva finta) da spostare. Ripeti “UVA”.</p>
+        </div>
+        <div class="attivita">
+          <h4>📖 4–7 anni</h4>
+          <p>Disegna grappolo viola, incolla semini (lenticchie).</p>
+        </div>
+        <div class="attivita">
+          <h4>✍️ 8–12 anni</h4>
+          <p>Articolo sulla vendemmia in Italia (usi, tradizioni).</p>
+        </div>
+        <div class="livello">🍇 Rima, territorio, lessico</div>
+      </div>
+    </div>
+
+    <!-- INVERNO 1 -->
+    <div class="scheda">
+      <div class="season-header" style="background: #6A9FB5; color: #EFF7FF;">
+        <div class="season-name">❄️ INVERNO</div>
+        <div style="font-size:0.75rem;">Neve e caminetto</div>
+      </div>
+      <div class="filastrocca">
+        <div class="testo-filastrocca">
+          ☃️ <strong>Fiocchi di neve</strong> ☃️<br><br>
+          Un fiocco, due fiocchi, tre fiocchi giù,<br>
+          coprono prati, tetti e quaggiù.<br>
+          Il pupazzo ha il naso carota,<br>
+          la sciarpa lunga che sventola rossa.<br>
+          Brrr che freddo, ma che allegria,<br>
+          l’inverno è una magia!
+        </div>
+        <div class="attivita">
+          <h4>🎨 0–3 anni</h4>
+          <p>👉 Soffiare su batuffolo cotone (fiocchi).</p>
+        </div>
+        <div class="attivita">
+          <h4>📖 4–7 anni</h4>
+          <p>Pupazzo con carta: tre cerchi, bottoni, carota.</p>
+          <div class="disegno">⛄❄️ = Inverno giocoso</div>
+        </div>
+        <div class="attivita">
+          <h4>✍️ 8–12 anni</h4>
+          <p>Poesia invernale con sensazioni tattili e onomatopee.</p>
+        </div>
+        <div class="livello">🧣 Filastrocca freddolosa ma calda</div>
+      </div>
+    </div>
+
+    <!-- INVERNO 2: Natale / luci -->
+    <div class="scheda">
+      <div class="season-header" style="background: #2C6E8F; color: #F0F7FC;">
+        <div class="season-name">🎄 INVERNO</div>
+        <div style="font-size:0.75rem;">Luci e stelline</div>
+      </div>
+      <div class="filastrocca">
+        <div class="testo-filastrocca">
+          🕯️ <strong>La notte più dolce</strong> 🕯️<br><br>
+          Luci colorate sull’albero verde,<br>
+          il cuore d’inverno mai si perde.<br>
+          Pan di zenzero e cioccolata calda,<br>
+          la neve fuori è una coltre salda.<br>
+          Cantiamo insieme una ninna nanna,<br>
+          l’inverno scalda la nostra casa.
+        </div>
+        <div class="attivita">
+          <h4>🎨 0–3 anni</h4>
+          <p>👉 Luci soffuse, stoffe morbide, canticchiare.</p>
+        </div>
+        <div class="attivita">
+          <h4>📖 4–7 anni</h4>
+          <p>Disegna albero decorato con lucine.</p>
+          <div class="disegno">🎄✨❄️ = Magia d’inverno</div>
+        </div>
+        <div class="attivita">
+          <h4>✍️ 8–12 anni</h4>
+          <p>Acrostico con “INVERNO” (versi sul Natale o luce).</p>
+        </div>
+        <div class="livello">⭐ Calore, luce, condivisione</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sezione finale giochi linguistici -->
+   <div class="scheda">
+      <div class="season-header" style="background: #2C6E8F; color: #F0F7FC;">
+        <div class="season-name"> 🎭 Giochi  con le filastrocche stagionali </div>
+        <div style="font-size:0.75rem;">Attività</div>
+      </div>
+      <div class="filastrocca">
+        <div class="testo-filastrocca">
+   
+       <p><strong>🎲 0–3 anni:</strong> L’adulto recita e fa gesti: “fiocco di neve” (dita che cadono), “foglia che vola” (mano ondeggia).<br>
+    <strong>🎭 4–7 anni:</strong> Teatro delle stagioni: ogni bambino sceglie una filastrocca e la mima con un cappellino (sole, foglia, fiocco).<br>
+    <strong>📜 8–12 anni:</strong> Concorso di mini-recita: creare una performance con almeno due filastrocche (primavera+autunno).<br>
+    🎤 Le filastrocche si possono cantare o recitare in cerchio, tenendosi per mano (sede o a casa).</p>
+    <p style="margin-top: 0.8rem; background: #EAD5B0; border-radius: 28px; padding: 0.6rem; text-align: center;">🌈 “Imparare le stagioni con rime e gesti rende l’italiano una carezza. La Dolce Lingua – sempre in presenza.”</p>
+  </div>
+</div>
+    </div>
+  </div>
+  <footer>
+    🍬 La Dolce Lingua – Filastrocche stagionali per bambini 0-12 anni – Materiale didattico per lezioni in presenza (sede o domicilio)<br>
+    Le filastrocche possono essere lette, recitate, colorate e trasformate in piccoli spettacoli. Stampare in formato A4 – ogni scheda rimane integra sulla pagina.
+  </footer>
+</div>
+</body>
+</html>

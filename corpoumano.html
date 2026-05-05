@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Dolce Lingua - Il corpo umano | Body Vocabulary (IT/EN-AU) | Stampabile PDF</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', 'Quicksand', 'Comic Neue', 'Trebuchet MS', sans-serif;
+      background: #e8e0d0;
+      padding: 0.2in;
+      color: #2d3e2b;
+    }
+    @media print {
+      body {
+        background: white;
+        padding: 0.1in;
+        margin: 0;
+      }
+      .container {
+        background: white;
+        box-shadow: none;
+        padding: 0;
+        margin: 0;
+      }
+      .scheda, .corpo-intero {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ccc;
+        margin-bottom: 0.8rem;
+      }
+      .grid {
+        gap: 0.8rem;
+      }
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 32px;
+      padding: 0.6rem;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+    }
+    h1 {
+      text-align: center;
+      color: #D68B45;
+      font-size: 2rem;
+      margin-bottom: 0.2rem;
+    }
+    .sub {
+      text-align: center;
+      font-size: 0.95rem;
+      color: #8B6B3D;
+      margin-bottom: 1rem;
+      border-bottom: 2px dashed #E9C89B;
+      padding-bottom: 0.5rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+    .scheda {
+      background: #ffffff;
+      border-radius: 28px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.05);
+      overflow: hidden;
+      break-inside: avoid;
+      page-break-inside: avoid;
+      border: 1px solid #E6D5B8;
+      display: flex;
+      flex-direction: column;
+    }
+    .parte-header {
+      background: #F7B05E;
+      padding: 0.7rem;
+      text-align: center;
+      color: #2C2B26;
+    }
+    .parte-header h3 {
+      font-size: 1.3rem;
+      letter-spacing: 1px;
+    }
+    .vocab-list {
+      padding: 1rem;
+      flex: 1;
+    }
+    .vocab-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 0.6rem 0;
+      border-bottom: 1px dotted #FFE0C0;
+    }
+    .italiano {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #C46A2B;
+    }
+    .inglese {
+      font-size: 0.9rem;
+      color: #5A6E4A;
+      font-style: italic;
+    }
+    .emoji-part {
+      font-size: 1.4rem;
+      margin-right: 0.6rem;
+    }
+    .attivita {
+      background: #F8F2E3;
+      border-radius: 20px;
+      padding: 0.7rem;
+      margin: 0.6rem 0.8rem 0.8rem 0.8rem;
+    }
+    .attivita h4 {
+      color: #9B5E2C;
+      font-size: 0.85rem;
+      margin-bottom: 0.3rem;
+    }
+    .attivita p {
+      font-size: 0.8rem;
+    }
+    .livello {
+      display: inline-block;
+      background: #FCE9DE;
+      padding: 0.2rem 0.7rem;
+      border-radius: 40px;
+      font-size: 0.65rem;
+      font-weight: bold;
+      margin: 0.5rem 0.8rem 0.8rem 0.8rem;
+      color: #9B5E2C;
+    }
+    .corpo-intero {
+      background: #FAF4E6;
+      border-radius: 28px;
+      padding: 1rem;
+      margin: 1rem 0;
+      break-inside: avoid;
+      page-break-inside: avoid;
+      border: 2px solid #F7D9B0;
+    }
+    .double-col {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+    .col-parts {
+      flex: 1;
+      min-width: 200px;
+    }
+    .body-illustration {
+      text-align: center;
+      font-size: 6rem;
+      line-height: 1;
+    }
+    footer {
+      text-align: center;
+      margin-top: 1.2rem;
+      font-size: 0.7rem;
+      color: #A67B48;
+      border-top: 1px solid #EAD5B0;
+      padding-top: 0.7rem;
+    }
+    .badge {
+      background: #F0CFA0;
+      border-radius: 20px;
+      padding: 0.2rem 0.6rem;
+      font-size: 0.65rem;
+      display: inline-block;
+      margin-left: 0.5rem;
+    }
+    @media print {
+      .vocab-row {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>🍬 La Dolce Lingua – Il corpo umano 🧍‍♀️🧍‍♂️</h1>
+  <div class="sub">Italiano · Inglese australiano – Body vocabulary for kids 0–12 years<br>Impara le parti del corpo con dolcezza – in presenza o a casa</div>
+
+  <!-- CORPO INTERO – illustrazione vocaboli principali -->
+  <div class="corpo-intero">
+    <h3 style="text-align: center; color:#C46A2B;">✨ Le parti principali / Main body parts ✨</h3>
+    <div class="double-col">
+      <div class="col-parts">
+        <div class="vocab-row"><span><span class="emoji-part">🧠</span> <strong class="italiano">testa</strong></span><span class="inglese">head</span></div>
+        <div class="vocab-row"><span><span class="emoji-part">💪</span> <strong class="italiano">braccio</strong></span><span class="inglese">arm</span></div>
+        <div class="vocab-row"><span><span class="emoji-part">🖐️</span> <strong class="italiano">mano</strong></span><span class="inglese">hand</span></div>
+        <div class="vocab-row"><span><span class="emoji-part">🦵</span> <strong class="italiano">gamba</strong></span><span class="inglese">leg</span></div>
+        <div class="vocab-row"><span><span class="emoji-part">🦶</span> <strong class="italiano">piede</strong></span><span class="inglese">foot (pl. feet)</span></div>
+      </div>
+      <div class="col-parts">
+        <div class="vocab-row"><span><span class="emoji-part">👀</span> <strong class="italiano">occhio</strong></span><span class="inglese">eye</span></div>
+        <div class="vocab-row"><span><span class="emoji-part">👃</span> <strong class="italiano">naso</strong></span><span class="inglese">nose</span></div>
+        <div class="vocab-row"><span><span class="emoji-part">👄</span> <strong class="italiano">bocca</strong></span><span class="inglese">mouth</span></div>
+        <div class="vocab-row"><span><span class="emoji-part">👂</span> <strong class="italiano">orecchio</strong></span><span class="inglese">ear</span></div>
+        <div class="vocab-row"><span><span class="emoji-part">❤️</span> <strong class="italiano">cuore</strong></span><span class="inglese">heart</span></div>
+      </div>
+      <div class="body-illustration">
+        🧒<br>
+        🙆‍♀️
+      </div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <!-- SCHEDA: TESTA E VISO -->
+    <div class="scheda">
+      <div class="parte-header"><h3>🗣️ TESTA & VISO / HEAD & FACE</h3></div>
+      <div class="vocab-list">
+        <div class="vocab-row"><span><strong class="italiano">capelli</strong></span><span class="inglese">hair</span></div>
+        <div class="vocab-row"><span><strong class="italiano">fronte</strong></span><span class="inglese">forehead</span></div>
+        <div class="vocab-row"><span><strong class="italiano">sopracciglio</strong></span><span class="inglese">eyebrow</span></div>
+        <div class="vocab-row"><span><strong class="italiano">ciglia</strong></span><span class="inglese">eyelashes</span></div>
+        <div class="vocab-row"><span><strong class="italiano">guancia</strong></span><span class="inglese">cheek</span></div>
+        <div class="vocab-row"><span><strong class="italiano">mento</strong></span><span class="inglese">chin</span></div>
+        <div class="vocab-row"><span><strong class="italiano">lingua</strong></span><span class="inglese">tongue</span></div>
+        <div class="vocab-row"><span><strong class="italiano">denti</strong></span><span class="inglese">teeth</span></div>
+      </div>
+      <div class="attivita">
+        <h4>🎨 0–3 anni</h4>
+        <p>Tocca la tua fronte, il naso, le guance mentre dici la parola. Canzoncina: “Questa è la mia bocca, questo è il mio naso…”</p>
+        <h4>📖 4–7 anni</h4>
+        <p>Disegna un grande volto e scrivi le parti in italiano e inglese (con aiuto).</p>
+        <h4>✍️ 8–12 anni</h4>
+        <p>Crea un “gioco dello specchio”: descrivi il tuo viso in 5 frasi usando 5 vocaboli inglesi/italiani.</p>
+      </div>
+      <div class="livello">🎯 Età 0-12 – imparare giocando</div>
+    </div>
+
+    <!-- SCHEDA: ARTI SUPERIORI -->
+    <div class="scheda">
+      <div class="parte-header"><h3>💪 ARTI SUPERIORI / UPPER LIMBS</h3></div>
+      <div class="vocab-list">
+        <div class="vocab-row"><span><strong class="italiano">spalla</strong></span><span class="inglese">shoulder</span></div>
+        <div class="vocab-row"><span><strong class="italiano">gomito</strong></span><span class="inglese">elbow</span></div>
+        <div class="vocab-row"><span><strong class="italiano">polso</strong></span><span class="inglese">wrist</span></div>
+        <div class="vocab-row"><span><strong class="italiano">dita (della mano)</strong></span><span class="inglese">fingers</span></div>
+        <div class="vocab-row"><span><strong class="italiano">pollice</strong></span><span class="inglese">thumb</span></div>
+        <div class="vocab-row"><span><strong class="italiano">indice</strong></span><span class="inglese">index finger</span></div>
+        <div class="vocab-row"><span><strong class="italiano">unghia</strong></span><span class="inglese">nail</span></div>
+        <div class="vocab-row"><span><strong class="italiano">palmo</strong></span><span class="inglese">palm</span></div>
+      </div>
+      <div class="attivita">
+        <h4>🎨 0–3 anni</h4>
+        <p>Batti le mani, alza le braccia. Ripeti “mani, braccia, dita”.</p>
+        <h4>📖 4–7 anni</h4>
+        <p>Disegna la tua mano e scrivi “pollice”, “indice”, “palmo” (italiano e inglese).</p>
+        <h4>✍️ 8–12 anni</h4>
+        <p>Inventa una mini storia “Il viaggio del pollice” usando almeno 5 parole di questa scheda.</p>
+      </div>
+      <div class="livello">✋ 5 dita, tante parole nuove</div>
+    </div>
+
+    <!-- SCHEDA: TRONCO E ORGANI -->
+    <div class="scheda">
+      <div class="parte-header"><h3>🧘 TRONCO & ORGANI / TORSO & ORGANS</h3></div>
+      <div class="vocab-list">
+        <div class="vocab-row"><span><strong class="italiano">collo</strong></span><span class="inglese">neck</span></div>
+        <div class="vocab-row"><span><strong class="italiano">petto</strong></span><span class="inglese">chest</span></div>
+        <div class="vocab-row"><span><strong class="italiano">pancia</strong></span><span class="inglese">belly / tummy</span></div>
+        <div class="vocab-row"><span><strong class="italiano">schiena</strong></span><span class="inglese">back</span></div>
+        <div class="vocab-row"><span><strong class="italiano">polmone</strong></span><span class="inglese">lung</span></div>
+        <div class="vocab-row"><span><strong class="italiano">stomaco</strong></span><span class="inglese">stomach</span></div>
+        <div class="vocab-row"><span><strong class="italiano">osso</strong></span><span class="inglese">bone</span></div>
+        <div class="vocab-row"><span><strong class="italiano">costole</strong></span><span class="inglese">ribs</span></div>
+      </div>
+      <div class="attivita">
+        <h4>🎨 0–3 anni</h4>
+        <p>Tocca la pancia, la schiena, il collo mentre impari la canzone “Head, shoulders, knees and toes” in italiano.</p>
+        <h4>📖 4–7 anni</h4>
+        <p>Disegna il contorno del tuo corpo su un foglio grande, poi scrivi “pancia”, “petto”, “collo”.</p>
+        <h4>✍️ 8–12 anni</h4>
+        <p>Crea un cartello con i nomi in italiano e inglese dei principali organi (cuore, polmoni, stomaco).</p>
+      </div>
+      <div class="livello">❤️ respira, scopri il corpo</div>
+    </div>
+
+    <!-- SCHEDA: ARTI INFERIORI -->
+    <div class="scheda">
+      <div class="parte-header"><h3>🦵 ARTI INFERIORI / LOWER LIMBS</h3></div>
+      <div class="vocab-list">
+        <div class="vocab-row"><span><strong class="italiano">coscia</strong></span><span class="inglese">thigh</span></div>
+        <div class="vocab-row"><span><strong class="italiano">ginocchio</strong></span><span class="inglese">knee</span></div>
+        <div class="vocab-row"><span><strong class="italiano">polpaccio</strong></span><span class="inglese">calf</span></div>
+        <div class="vocab-row"><span><strong class="italiano">caviglia</strong></span><span class="inglese">ankle</span></div>
+        <div class="vocab-row"><span><strong class="italiano">tallone</strong></span><span class="inglese">heel</span></div>
+        <div class="vocab-row"><span><strong class="italiano">dita del piede</strong></span><span class="inglese">toes</span></div>
+        <div class="vocab-row"><span><strong class="italiano">pianta del piede</strong></span><span class="inglese">sole of the foot</span></div>
+      </div>
+      <div class="attivita">
+        <h4>🎨 0–3 anni</h4>
+        <p>Saltellare, battere i piedi. Nominare “ginocchio”, “piede”, “dita del piede”.</p>
+        <h4>📖 4–7 anni</h4>
+        <p>Impronta del piede su foglio: scrivi “piede”, “caviglia”, “tallone” in doppia lingua.</p>
+        <h4>✍️ 8–12 anni</h4>
+        <p>Descrivi i movimenti delle gambe mentre corri o balli (uso dei verbi + parti del corpo).</p>
+      </div>
+      <div class="livello">👣 camminare, correre, saltare</div>
+    </div>
+
+    <!-- SCHEDA: PARTI SPECIALI + ESPRESSIONI -->
+    <div class="scheda">
+      <div class="parte-header"><h3>😊 ESPRESSIONI & MOVIMENTI</h3></div>
+      <div class="vocab-list">
+        <div class="vocab-row"><span><strong class="italiano">sorriso</strong></span><span class="inglese">smile</span></div>
+        <div class="vocab-row"><span><strong class="italiano">pianto</strong></span><span class="inglese">cry</span></div>
+        <div class="vocab-row"><span><strong class="italiano">battere le mani</strong></span><span class="inglese">clap hands</span></div>
+        <div class="vocab-row"><span><strong class="italiano">alzare le braccia</strong></span><span class="inglese">raise arms</span></div>
+        <div class="vocab-row"><span><strong class="italiano">chinarsi</strong></span><span class="inglese">bend down</span></div>
+        <div class="vocab-row"><span><strong class="italiano">applauso</strong></span><span class="inglese">applause</span></div>
+      </div>
+      <div class="attivita">
+        <h4>🎨 0–3 anni</h4>
+        <p>Mostra il sorriso, batti le mani. Ripeti “sorriso”, “applauso”.</p>
+        <h4>📖 4–7 anni</h4>
+        <p>Giochiamo a “Simon says” in italiano e inglese: “Simon says touch your nose, your knees…”</p>
+        <h4>✍️ 8–12 anni</h4>
+        <p>Crea un mini dizionario illustrato dei gesti e movimenti.</p>
+      </div>
+      <div class="livello">🎭 Il corpo comunica</div>
+    </div>
+  </div>
+
+  <!-- GIOCO FINALE: spelling e azioni -->
+  <div class="scheda">
+    <div class="parte-header"><h3>🎲 Attività in presenza: “Il corpo che parla”</h3></div>
+    <p><strong>🐣 0–3 anni:</strong> Canzone “Testa, spalle, ginocchia e piedi” (italiano + inglese australiano). Toccare mentre si canta.<br>
+    <strong>🧸 4–7 anni:</strong> Gioco della statua musicale: quando la musica si ferma, l’insegnante nomina una parte del corpo in italiano/inglese e i bambini la indicano.<br>
+    <strong>✍️ 8–12 anni:</strong> Sfida a coppie: uno dice una parola (es. “gomito”), l’altro deve dire la traduzione e toccarsi quella parte. Chi sbaglia perde un punto.<br>
+    🌟 <em>“Il corpo è la prima parola che impariamo senza parlare – con La Dolce Lingua lo trasformiamo in gioco bilingue, sempre in presenza.”</em></p>
+    <p style="background: #EAD5B0; border-radius: 28px; padding: 0.6rem; text-align: center; margin-top: 0.6rem;">📖🇮🇹🇦🇺 “Head, shoulders, knees and toes / Testa, spalle, ginocchia e piè…”</p>
+  </div>
+</div>
+  <footer>
+    🍬 La Dolce Lingua – Body vocabulary sheet (Italiano & Australian English) – per bambini 0-12 anni – Materiale didattico per lezioni in presenza (sede o domicilio)<br>
+    Stampare in formato A4 – Ogni scheda rimane integra sulla pagina. Ripeti i vocaboli con gesti e movimento.
+  </footer>
+</div>
+</body>
+</html>
