@@ -105,24 +105,20 @@ La Dolce Lingua si ispira a tre tradizioni: apprendimento sensoriale, immersione
 
 <!-- section: table -->
 <!-- lang: en -->
-<div class="table-wrap">
 | Age | Lesson duration | Max children | Available formats |
 |-----|-----------------|--------------|-------------------|
 | 0–2 years | 30 min | 4 | <span class="tag-sm tag-sage">Venue</span> <span class="tag-sm tag-gold">Home</span> |
 | 3–5 years | 45 min | 6 | <span class="tag-sm tag-sage">Venue</span> <span class="tag-sm tag-gold">Home</span> |
 | 6–8 years | 60 min | 8 | <span class="tag-sm tag-sage">Venue</span> <span class="tag-sm tag-gold">Home</span> |
 | 9–12 years | 75 min | 8 | <span class="tag-sm tag-sage">Venue</span> <span class="tag-sm tag-gold">Home</span> |
-</div>
 
 <!-- lang: it -->
-<div class="table-wrap">
 | Età | Durata Lezione | Max Bambini | Formati Disponibili |
 |-----|----------------|-------------|---------------------|
 | 0–2 anni | 30 min | 4 | <span class="tag-sm tag-sage">Sede</span> <span class="tag-sm tag-gold">Domicilio</span> |
 | 3–5 anni | 45 min | 6 | <span class="tag-sm tag-sage">Sede</span> <span class="tag-sm tag-gold">Domicilio</span> |
 | 6–8 anni | 60 min | 8 | <span class="tag-sm tag-sage">Sede</span> <span class="tag-sm tag-gold">Domicilio</span> |
 | 9–12 anni | 75 min | 8 | <span class="tag-sm tag-sage">Sede</span> <span class="tag-sm tag-gold">Domicilio</span> |
-</div>
 
 <!-- section: games -->
 <!-- lang: en -->

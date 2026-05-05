@@ -21,7 +21,10 @@ async function renderSection(sectionId, sectionName) {
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const rawMd = await response.text();
     const md = extractSectionMarkdown(rawMd, sectionName, currentLang);
-    element.innerHTML = marked.parse(md);
+    const rendered = marked.parse(md);
+    element.innerHTML = sectionName === 'table'
+      ? `<div class="table-wrap">${rendered}</div>`
+      : rendered;
   } catch (error) {
     console.error(`Failed to load ${sectionName} markdown:`, error);
     element.innerHTML = `<p>Unable to load ${sectionName} content at this time.</p>`;
