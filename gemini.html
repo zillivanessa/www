@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Dolce Lingua | Italian for Kids</title>
+    <!-- Google Fonts: Quicksand for a rounded, friendly feel -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --pastel-blue: #a2d2ff;
+            --pastel-pink: #ffafcc;
+            --pastel-yellow: #fdfd96;
+            --pastel-green: #b9fbc0;
+            --text-dark: #4a4a4a;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        body {
+            background-color: #fafafa;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- Navigation --- */
+        header {
+            background: var(--white);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--pastel-pink);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            position: fixed;
+            top: 60px;
+            left: -100%;
+            width: 100%;
+            height: calc(100vh - 60px);
+            background: var(--white);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: 0.3s;
+            padding-top: 2rem;
+        }
+
+        .nav-menu.active { left: 0; }
+
+        .nav-menu a {
+            padding: 1rem;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .hamburger { cursor: pointer; font-size: 1.5rem; }
+
+        /* --- Global Styles --- */
+        section { padding: 3rem 1.5rem; display: none; }
+        section.active { display: block; animation: fadeIn 0.5s; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: var(--pastel-pink);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .btn:hover { transform: scale(1.05); }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        h2 { color: var(--pastel-blue); margin-bottom: 1.5rem; text-align: center; }
+
+        /* --- Homepage --- */
+        .hero {
+            background: var(--pastel-blue);
+            color: white;
+            text-align: center;
+            padding: 4rem 1.5rem;
+            border-radius: 0 0 50px 50px;
+        }
+
+        .hero h1 { font-size: 2.2rem; margin-bottom: 1rem; }
+        
+        .mode-cards { display: grid; gap: 1rem; margin-top: 2rem; }
+        .mode-card { padding: 1.5rem; border-radius: 20px; text-align: center; }
+        .mode-studio { background: var(--pastel-yellow); }
+        .mode-home { background: var(--pastel-green); }
+
+        /* --- Table Style --- */
+        .table-container { overflow-x: auto; margin-top: 1rem; }
+        table { width: 100%; border-collapse: collapse; background: white; }
+        th, td { border: 1px solid #eee; padding: 10px; text-align: left; font-size: 0.9rem; }
+        th { background: var(--pastel-blue); color: white; }
+
+        /* --- Mini-Game --- */
+        #game-container {
+            text-align: center;
+            background: var(--pastel-yellow);
+            padding: 2rem;
+            border-radius: 20px;
+        }
+        .game-options { display: flex; justify-content: space-around; margin-top: 1rem; }
+        .game-btn { font-size: 3rem; background: white; border: 3px solid var(--pastel-pink); border-radius: 15px; cursor: pointer; padding: 10px; }
+
+        /* --- Footer --- */
+        footer {
+            background: #eee;
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            margin-top: 2rem;
+        }
+
+        .social-icons { font-size: 1.5rem; margin-top: 1rem; }
+        .social-icons i { margin: 0 10px; color: #25D366; }
+
+        /* --- Accordion --- */
+        .accordion { margin-top: 1rem; }
+        .acc-item { margin-bottom: 0.5rem; border-radius: 10px; overflow: hidden; }
+        .acc-header { background: var(--pastel-blue); color: white; padding: 1rem; cursor: pointer; font-weight: 600; }
+        .acc-content { background: white; padding: 1rem; display: none; border: 1px solid var(--pastel-blue); }
+
+        /* Tablet/Desktop */
+        @media (min-width: 768px) {
+            .mode-cards { grid-template-columns: 1fr 1fr; }
+            .nav-menu { position: static; height: auto; flex-direction: row; background: transparent; width: auto; padding: 0; }
+            .hamburger { display: none; }
+            .hero h1 { font-size: 3.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo" onclick="showPage('home')">🍬 La Dolce Lingua</a>
+        <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+        <nav class="nav-menu" id="navMenu">
+            <a href="#" onclick="showPage('home')">Home</a>
+            <a href="#" onclick="showPage('metodo')">Method</a>
+            <a href="#" onclick="showPage('dove')">Where & How</a>
+            <a href="#" onclick="showPage('giochi')">Games</a>
+            <a href="#" onclick="showPage('genitori')">Parents</a>
+            <a href="#" onclick="showPage('contatti')">Contact</a>
+        </nav>
+    </header>
+
+    <!-- HOME PAGE -->
+    <section id="home" class="active">
+        <div class="hero">
+            <h1>La Dolce Lingua</h1>
+            <p><i>The Italian that cuddles the little ones - Live lessons</i></p>
+            <p><strong>Australian English & Italian | 0–12 years</strong></p>
+            <br>
+            <button class="btn" onclick="showPage('contatti')">Enrol Now / Iscriviti ora</button>
+        </div>
+
+        <div class="mode-cards">
+            <div class="mode-card mode-studio">
+                <i class="fas fa-school fa-2x"></i>
+                <h3>At our Studio</h3>
+                <p>Visit us at 123 Pasta Street, Sydney. Tactile materials and fun rooms!</p>
+                <p><i>Presso il nostro Studio - materiali tattili e aule colorate.</i></p>
+            </div>
+            <div class="mode-card mode-home">
+                <i class="fas fa-home fa-2x"></i>
+                <h3>At your Home</h3>
+                <p>We come to you! Flexible hours and the comfort of your own space.</p>
+                <p><i>A casa tua - massima comodità e orari flessibili.</i></p>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin: 2rem 0;">
+            <p>🚫 <strong>NO SCREENS. 100% IN-PERSON.</strong></p>
+            <p><i>Nessuno schermo. 100% in presenza.</i></p>
+        </div>
+
+        <div class="card">
+            <h2>How it works / Come funziona</h2>
+            <ol style="padding-left: 1rem;">
+                <li><strong>Step 1:</strong> Choose Studio or Home lessons.</li>
+                <li><strong>Step 2:</strong> Personalised path based on age (0-12).</li>
+                <li><strong>Step 3:</strong> Start playing and speaking Italian!</li>
+            </ol>
+        </div>
+
+        <div id="testimonials">
+            <!-- Dynamically loaded -->
+        </div>
+    </section>
+
+    <!-- METODO PAGE -->
+    <section id="metodo">
+        <h2>Our Method / Il Metodo</h2>
+        <div class="card">
+            <p>We use a sensory, narrative, and Montessori-inspired approach. Children learn through movement, songs, and real objects.</p>
+            <p><i>Approccio sensoriale e narrativo. Si impara con corpo, voce e oggetti reali.</i></p>
+        </div>
+
+        <div id="age-groups">
+            <!-- Dynamically loaded -->
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Age / Età</th>
+                        <th>Duration / Durata</th>
+                        <th>Max Kids</th>
+                        <th>Where</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>0-2</td><td>45 min</td><td>5</td><td>Both</td></tr>
+                    <tr><td>3-5</td><td>60 min</td><td>6</td><td>Both</td></tr>
+                    <tr><td>6-8</td><td>60 min</td><td>8</td><td>Both</td></tr>
+                    <tr><td>9-12</td><td>90 min</td><td>8</td><td>Both</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- DOVE PAGE -->
+    <section id="dove">
+        <h2>Where & How / Dove e come</h2>
+        <div class="card">
+            <h3>📍 Studio Dolce Lingua</h3>
+            <p>123 Pasta Street, Little Italy, Sydney.</p>
+            <div style="background:#ddd; height:150px; border-radius:10px; display:flex; align-items:center; justify-content:center; margin:1rem 0;">
+                [Map Placeholder / Mappa]
+            </div>
+        </div>
+        <div class="card">
+            <h3>🏠 At Home / A domicilio</h3>
+            <p>We travel within 15km of Sydney CBD.</p>
+            <button class="btn" onclick="showPage('contatti')">Request Home Quote</button>
+        </div>
+    </section>
+
+    <!-- GIOCHI PAGE -->
+    <section id="giochi">
+        <h2>Games & Activities</h2>
+        <div class="card">
+            <h3>Live Demo: "Ascolta e Scegli"</h3>
+            <div id="game-container">
+                <p id="game-text">Loading game...</p>
+                <div class="game-options" id="game-options"></div>
+            </div>
+        </div>
+        <div class="card">
+            <h3>Printables for Home</h3>
+            <p><i class="fas fa-file-pdf"></i> <a href="#">Download: Italian Rhymes PDF</a></p>
+            <p><i class="fas fa-file-pdf"></i> <a href="#">Download: Animal Flashcards</a></p>
+        </div>
+    </section>
+
+    <!-- GENITORI PAGE -->
+    <section id="genitori">
+        <h2>Parents Area</h2>
+        <div class="card" style="border-left: 5px solid var(--pastel-green);">
+            <h4>Fictional Progress</h4>
+            <p><strong>Matteo (4 yo):</strong> 6 home lessons completed. Focus: Animals & Colours.</p>
+        </div>
+        
+        <h3>FAQ</h3>
+        <div class="accordion">
+            <div class="acc-item">
+                <div class="acc-header">Studio or Home? / Sede o domicilio?</div>
+                <div class="acc-content">Both offer the same curriculum! Choose Home for convenience or Studio for social interaction.</div>
+            </div>
+            <div class="acc-item">
+                <div class="acc-header">Are there online classes?</div>
+                <div class="acc-content">No. We believe language learning for kids happens through physical presence and human connection.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTATTI PAGE -->
+    <section id="contatti">
+        <h2>Contact Us</h2>
+        <div class="card">
+            <form id="contactForm" onsubmit="event.preventDefault(); alert('Grazie! Ti contatteremo presto.');">
+                <input type="text" placeholder="Your Name" style="width:100%; padding:10px; margin-bottom:10px; border-radius:10px; border:1px solid #ccc;">
+                <input type="email" placeholder="Email" style="width:100%; padding:10px; margin-bottom:10px; border-radius:10px; border:1px solid #ccc;">
+                <select style="width:100%; padding:10px; margin-bottom:10px; border-radius:10px; border:1px solid #ccc;">
+                    <option>Interest: Studio Lessons</option>
+                    <option>Interest: Home Lessons</option>
+                </select>
+                <button class="btn" style="width:100%;">Send Inquiry</button>
+            </form>
+        </div>
+        <div style="text-align: center;">
+            <p><i class="fab fa-whatsapp"></i> Chat with us: +61 400 000 000</p>
+        </div>
+    </section>
+
+    <footer>
+        <p><strong>La Dolce Lingua</strong> – L'italiano dolce per bambini da 0 a 12 anni.</p>
+        <p>Lezioni in sede o a domicilio. No screens. Just Fun.</p>
+        <div class="social-icons">
+            <i class="fab fa-whatsapp"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-facebook"></i>
+        </div>
+        <p style="margin-top:10px; font-size:0.7rem;">© 2024 La Dolce Lingua Sydney</p>
+    </footer>
+
+    <script>
+        // --- Data Arrays ---
+        const ageGroups = [
+            { range: "0–2 years", desc: "First words and rhymes with Mum/Dad.", ita: "Prime parole e filastrocche con mamma/papà." },
+            { range: "3–5 years", desc: "Basic vocabulary and symbolic play.", ita: "Vocabolario di base e gioco simbolico." },
+            { range: "6–8 years", desc: "First sentences and reading aloud.", ita: "Prime frasi e lettura ad alta voce." },
+            { range: "9–12 years", desc: "Oral and written projects.", ita: "Produzione scritta e piccoli progetti." }
+        ];
+
+        const testimonials = [
+            { name: "Sarah (Mum of Leo)", text: "The home lessons are a lifesaver for our busy schedule!", mode: "Home" },
+            { name: "Giulia (Mamma di Sofia)", text: "Lo studio è bellissimo, pieno di giochi di legno e libri.", mode: "Studio" }
+        ];
+
+        // --- Navigation Logic ---
+        function toggleMenu() {
+            document.getElementById('navMenu').classList.toggle('active');
+        }
+
+        function showPage(pageId) {
+            document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            document.getElementById('navMenu').classList.remove('active');
+            window.scrollTo(0,0);
+        }
+
+        // --- Initialize Data ---
+        function init() {
+            const ageDiv = document.getElementById('age-groups');
+            ageGroups.forEach(group => {
+                ageDiv.innerHTML += `
+                    <div class="card">
+                        <h4 style="color:var(--pastel-pink)">${group.range}</h4>
+                        <p>${group.desc}</p>
+                        <p><i>${group.ita}</i></p>
+                    </div>
+                `;
+            });
+
+            const testDiv = document.getElementById('testimonials');
+            testimonials.forEach(t => {
+                testDiv.innerHTML += `
+                    <div class="card" style="font-style: italic;">
+                        <p>"${t.text}"</p>
+                        <small><strong>- ${t.name} (${t.mode} lessons)</strong></small>
+                    </div>
+                `;
+            });
+            initGame();
+        }
+
+        // --- Accordion Logic ---
+        document.querySelectorAll('.acc-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                content.style.display = content.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+
+        // --- Mini-Game Logic ---
+        const gameData = [
+            { q: "Choose the: SOLE (Sun)", a: "☀️", options: ["☀️", "🍎", "🐶"] },
+            { q: "Choose the: MELA (Apple)", a: "🍎", options: ["🐱", "🍎", "🚗"] },
+            { q: "Choose the: CANE (Dog)", a: "🐶", options: ["🐶", "☁️", "🍕"] }
+        ];
+        let currentStep = 0;
+
+        function initGame() {
+            if(currentStep < gameData.length) {
+                const step = gameData[currentStep];
+                document.getElementById('game-text').innerText = step.q;
+                const optionsDiv = document.getElementById('game-options');
+                optionsDiv.innerHTML = '';
+                step.options.forEach(opt => {
+                    const btn = document.createElement('button');
+                    btn.className = 'game-btn';
+                    btn.innerText = opt;
+                    btn.onclick = () => checkAnswer(opt);
+                    optionsDiv.appendChild(btn);
+                });
+            } else {
+                document.getElementById('game-container').innerHTML = `
+                    <h3>Bravo!</h3>
+                    <p>At <b>La Dolce Lingua</b> we play like this, but together live with other kids!</p>
+                    <p><i>A La Dolce Lingua giochiamo così, ma dal vivo insieme ad altri bambini!</i></p>
+                    <button class="btn" onclick="currentStep=0; initGame();">Play Again</button>
+                `;
+            }
+        }
+
+        function checkAnswer(choice) {
+            if(choice === gameData[currentStep].a) {
+                currentStep++;
+                initGame();
+            } else {
+                alert("Try again! / Riprova!");
+            }
+        }
+
+        window.onload = init;
+    </script>
+</body>
+</html>
