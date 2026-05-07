@@ -1,25 +1,28 @@
 :root {
-  --primary: #FF6B9D;
-  --primary-light: #FFE0EB;
-  --primary-dark: #D44A7A;
-  --secondary: #FFD93D;
-  --secondary-light: #FFF3C4;
-  --secondary-dark: #C9A800;
-  --accent1: #6BCB77;
-  --accent1-light: #E0F5E3;
-  --accent1-dark: #3A8A45;
-  --accent2: #4D96FF;
-  --accent2-light: #D6EAFF;
-  --accent2-dark: #1A5FB4;
-  --bg: #FFF9F0;
+  --primary: #40be3b;
+  --primary-light: #FDE8E8;
+  --primary-dark: #f10202;
+  --secondary: #A8D5A2;
+  --secondary-light: #E6F4E4;
+  --secondary-dark: #46b43c;
+  --accent1: #a13d3d;
+  --accent1-light: #EFF8ED;
+  --accent1-dark: #4db644;
+  --accent2: #f17070;
+  --accent2-light: #FDE8E8;
+  --accent2-dark: #df4545;
+  --bg: #FFFBF5;
   --white: #FFFFFF;
+  --black: #000000;
   --ink: #3D2C2E;
   --ink-soft: #6B5557;
   --ink-muted: #A89193;
   --border: rgba(61,44,46,0.10);
-  --shadow: rgba(255,107,157,0.12);
-  --font-display: 'Baloo 2', cursive, sans-serif;
-  --font-body: 'Nunito', system-ui, sans-serif;
+  --shadow: rgba(232,141,141,0.12);
+  /* --font-display: 'Baloo 2', cursive, sans-serif;
+  --font-body: 'Nunito', system-ui, sans-serif;*/
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
   --radius: 20px;
   --radius-sm: 12px;
 }
@@ -103,7 +106,7 @@ body {
 .lang-toggle button.active {
   background: var(--primary);
   color: #fff;
-  box-shadow: 0 3px 12px rgba(255,107,157,0.4);
+  box-shadow: 0 3px 12px rgba(232,141,141,0.4);
   transform: scale(1.05);
 }
 
@@ -292,7 +295,7 @@ h2 em { color: var(--primary); font-style: normal; }
   border-radius: 99px;
   border: 2px solid rgba(107,203,119,0.3);
 }
-.method-pill.terra { background: var(--primary-light); color: var(--primary-dark); border-color: rgba(255,107,157,0.3); }
+.method-pill.terra { background: var(--primary-light); color: var(--primary-dark); border-color: rgba(232,141,141,0.3); }
 .method-pill.gold { background: var(--secondary-light); color: var(--secondary-dark); border-color: rgba(255,217,61,0.3); }
 .no-screens {
   background: linear-gradient(135deg, var(--primary), var(--accent2));
@@ -303,7 +306,7 @@ h2 em { color: var(--primary); font-style: normal; }
   align-items: center;
   gap: 20px;
   margin-top: 28px;
-  box-shadow: 0 8px 32px rgba(255,107,157,0.3);
+  box-shadow: 0 8px 32px rgba(232,141,141,0.3);
 }
 .no-screens .icon-wrap {
   width: 56px; height: 56px;
@@ -537,7 +540,7 @@ tbody td:first-child { font-weight: 700; color: var(--ink); }
 
 /* ── FOOTER ── */
 footer {
-  background: linear-gradient(135deg, var(--primary), var(--accent2), var(--accent1));
+  background: linear-gradient(135deg, var(--primary), var(--white), var(--accent1));
   color: #fff;
   padding: 56px 2rem;
   margin-top: 80px;
@@ -547,10 +550,10 @@ footer .footer-logo {
   font-family: var(--font-display);
   font-size: 32px;
   font-weight: 800;
-  color: var(--white);
+  color: var(--black);
   margin-bottom: 12px;
 }
-footer p { font-size: 14px; color: rgba(255,255,255,0.8); }
+footer p { font-size: 14px; color: rgba(0,0,0,0.8); }
 footer a { color: rgba(255,255,255,0.8); text-decoration: underline; }
 
 /* ── SEPARATOR ── */

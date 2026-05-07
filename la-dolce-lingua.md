@@ -7,9 +7,9 @@ A warm, welcoming community library with a dedicated children's reading room.
 Free parking nearby. Accessible by public transport (Bus 55 – Library stop).
 
 **Next available dates:**
-- Saturday 17 May 2025 – 10:00 am (ages 3–5)
-- Saturday 24 May 2025 – 10:30 am (ages 6–8)
-- Saturday 31 May 2025 – 9:30 am (ages 0–2, with parent)
+- Saturday 13 June 2026 – 10:00 am (ages 3–5)
+- Saturday 20 June 2026 – 10:30 am (ages 6–8)
+- Saturday 27 June 2026 – 9:30 am (ages 0–2, with parent)
 
 <!-- lang: it -->
 **Biblioteca Civica di Geelong**
@@ -19,9 +19,9 @@ Una biblioteca comunitaria accogliente con una sala lettura dedicata ai bambini.
 Parcheggio libero nelle vicinanze. Accessibile con i mezzi pubblici (Bus 55 – fermata Biblioteca).
 
 **Prossime date disponibili:**
-- Sabato 17 maggio 2025 – ore 10:00 (fascia 3–5 anni)
-- Sabato 24 maggio 2025 – ore 10:30 (fascia 6–8 anni)
-- Sabato 31 maggio 2025 – ore 9:30 (fascia 0–2 anni, con genitore)
+- Sabato 13 giugno 2026 – ore 10:00 (fascia 3–5 anni)
+- Sabato 20 giugno 2026 – ore 10:30 (fascia 6–8 anni)
+- Sabato 27 giugno 2026 – ore 9:30 (fascia 0–2 anni, con genitore)
 
 <!-- section: method -->
 <!-- lang: en -->
